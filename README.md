@@ -18,7 +18,6 @@ A web-based health chat application that allows patients to interact with an AI-
 - [Memory Optimization](#memory-optimization)
 - [Bonus Features Implemented](#bonus-features-implemented)
 - [Assumptions Made](#assumptions-made)
-- [Evaluation Criteria](#evaluation-criteria)
 - [Conclusion](#conclusion)
 - [Acknowledgments](#acknowledgments)
 
