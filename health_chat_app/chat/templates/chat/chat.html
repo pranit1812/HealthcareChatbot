@@ -1,0 +1,238 @@
+<!-- chat/templates/chat/chat.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Health Chat Application</title>
+    {% load static %}
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <style>
+        
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .chat-container {
+            width: 100%;
+            max-width: 600px;
+            height: 100vh;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-header {
+            background-color: #4a76a8;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .chat-header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .chat-box {
+            flex: 1;
+            overflow-y: auto;
+            padding: 15px;
+            background-color: #f9f9f9;
+        }
+
+        .message {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .message.patient {
+            justify-content: flex-end;
+        }
+
+        .message.bot {
+            justify-content: flex-start;
+        }
+
+        .message-bubble {
+            max-width: 70%;
+            padding: 10px;
+            border-radius: 15px;
+            position: relative;
+            word-wrap: break-word;
+        }
+
+        .message.patient .message-bubble {
+            background-color: #dcf8c6;
+            border-bottom-right-radius: 0;
+        }
+
+        .message.bot .message-bubble {
+            background-color: #ececec;
+            border-bottom-left-radius: 0;
+        }
+
+        .message .message-text {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .message .timestamp {
+            font-size: 12px;
+            color: #999;
+            margin-top: 5px;
+            text-align: right;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .chat-input textarea {
+            flex: 1;
+            resize: none;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .chat-input textarea:focus {
+            border-color: #4a76a8;
+        }
+
+        .chat-input button {
+            background-color: #4a76a8;
+            color: #fff;
+            border: none;
+            padding: 0 20px;
+            margin-left: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .chat-input button:hover {
+            background-color: #3a5c7e;
+        }
+
+        .appointment-requests,
+        .conversation-summary {
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            background-color: #fff;
+        }
+
+        .appointment-requests h3,
+        .conversation-summary h3 {
+            margin-top: 0;
+            font-size: 18px;
+        }
+
+        .appointment-requests ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .appointment-requests li {
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        .appointment-requests li:last-child {
+            border-bottom: none;
+        }
+
+        @media (max-width: 600px) {
+            .chat-container {
+                border: none;
+                box-shadow: none;
+            }
+
+            .chat-header h1 {
+                font-size: 20px;
+            }
+
+            .message-bubble {
+                max-width: 80%;
+            }
+
+            .chat-input button {
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>Health Chat Application</h1>
+        </div>
+
+        <div class="chat-box" id="chat-box">
+            {% for message in messages %}
+                <div class="message {% if message.sender == 'patient' %}patient{% else %}bot{% endif %}">
+                    <div class="message-bubble">
+                        <div class="message-text">
+                            {{ message.text }}
+                        </div>
+                        <div class="timestamp">
+                            {{ message.timestamp|date:"Y-m-d H:i" }}
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No messages yet. Start the conversation!</p>
+            {% endfor %}
+        </div>
+
+        <form method="post" class="chat-input">
+            {% csrf_token %}
+            <textarea name="message" rows="1" placeholder="Type your message here..." required></textarea>
+            <button type="submit"><i class="fa fa-paper-plane"></i> Send</button>
+        </form>
+
+        
+        {% if appointment_requests %}
+        <div class="appointment-requests">
+            <h3>Appointment Change Requests</h3>
+            <ul>
+                {% for request in appointment_requests %}
+                <li>
+                    {{ request.timestamp|date:"Y-m-d H:i" }} - Requested new appointment time: {{ request.requested_time|date:"Y-m-d H:i" }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        
+        {% if conversation_summary %}
+        <div class="conversation-summary">
+            <h3>Conversation Summary</h3>
+            <p>{{ conversation_summary }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+    
+    <script>
+        var chatBox = document.getElementById('chat-box');
+        chatBox.scrollTop = chatBox.scrollHeight;
+    </script>
+</body>
+</html>
