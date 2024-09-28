@@ -409,29 +409,7 @@ health_chat_app/
 
 ---
 
-## Evaluation Criteria
 
-- **Code Structure**:
-  - The code is modular and maintainable, with separate functions for different tasks in `utils.py`.
-  - Models, views, and utilities are organized logically within the Django app structure.
-
-- **Functionality**:
-  - The chatbot effectively manages health-related conversations, providing informative and empathetic responses.
-  - It detects appointment and medication change requests and handles them appropriately.
-
-- **Memory Optimization**:
-  - The bot handles long conversations efficiently by limiting the conversation history based on token count.
-
-- **Bonus Features**:
-  - Implemented knowledge graph integration with Neo4j.
-  - Included conversation summarization.
-  - Designed the application to be LLM-agnostic using LangChain.
-
-- **Documentation**:
-  - The README provides clear instructions on setting up the project locally and running the application.
-  - It explains the features, implementation details, and usage instructions.
-
----
 
 ## Conclusion
 
@@ -464,5 +442,5 @@ The application's architecture promotes scalability and extensibility, allowing 
 
 ---
 ## Contact
-# Author - Pranit Sehgal
-# Email - pranitsehgal@gmail.com
+ Author - Pranit Sehgal
+ Email - pranitsehgal@gmail.com
