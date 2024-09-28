@@ -460,8 +460,9 @@ The application's architecture promotes scalability and extensibility, allowing 
 
 ---
 
-**Note**: This application is a prototype developed for demonstration purposes and should not be used in a production environment without proper security audits and enhancements.
+
 
 ---
-
-If you have any questions or encounter issues while setting up or running the application, please feel free to reach out.
+## Contact
+# Author - Pranit Sehgal
+# Email - pranitsehgal@gmail.com
