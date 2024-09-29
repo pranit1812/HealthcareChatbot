@@ -4,6 +4,20 @@ A web-based health chat application that allows patients to interact with an AI-
 
 ---
 
+
+
+## Screenshots
+
+### Screenshot 1
+![Screenshot 2024-09-28 171638](https://github.com/pranit1812/HealthcareChatbot/blob/main/Screenshot%202024-09-28%20171638.png)
+
+### Screenshot 2
+![Screenshot 2024-09-28 171714](https://github.com/pranit1812/HealthcareChatbot/blob/main/Screenshot%202024-09-28%20171714.png)
+
+### Screenshot 3
+![Screenshot 2024-09-28 171915](https://github.com/pranit1812/HealthcareChatbot/blob/main/Screenshot%202024-09-28%20171915.png)
+
+
 ## Table of Contents
 
 - [Features](#features)
@@ -18,7 +32,6 @@ A web-based health chat application that allows patients to interact with an AI-
 - [Memory Optimization](#memory-optimization)
 - [Bonus Features Implemented](#bonus-features-implemented)
 - [Assumptions Made](#assumptions-made)
-- [Evaluation Criteria](#evaluation-criteria)
 - [Conclusion](#conclusion)
 - [Acknowledgments](#acknowledgments)
 
@@ -409,29 +422,7 @@ health_chat_app/
 
 ---
 
-## Evaluation Criteria
 
-- **Code Structure**:
-  - The code is modular and maintainable, with separate functions for different tasks in `utils.py`.
-  - Models, views, and utilities are organized logically within the Django app structure.
-
-- **Functionality**:
-  - The chatbot effectively manages health-related conversations, providing informative and empathetic responses.
-  - It detects appointment and medication change requests and handles them appropriately.
-
-- **Memory Optimization**:
-  - The bot handles long conversations efficiently by limiting the conversation history based on token count.
-
-- **Bonus Features**:
-  - Implemented knowledge graph integration with Neo4j.
-  - Included conversation summarization.
-  - Designed the application to be LLM-agnostic using LangChain.
-
-- **Documentation**:
-  - The README provides clear instructions on setting up the project locally and running the application.
-  - It explains the features, implementation details, and usage instructions.
-
----
 
 ## Conclusion
 
@@ -460,8 +451,9 @@ The application's architecture promotes scalability and extensibility, allowing 
 
 ---
 
-**Note**: This application is a prototype developed for demonstration purposes and should not be used in a production environment without proper security audits and enhancements.
+
 
 ---
-
-If you have any questions or encounter issues while setting up or running the application, please feel free to reach out.
+## Contact
+ Author - Pranit Sehgal
+ Email - pranitsehgal@gmail.com
