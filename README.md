@@ -4,6 +4,20 @@ A web-based health chat application that allows patients to interact with an AI-
 
 ---
 
+
+
+## Screenshots
+
+### Screenshot 1
+![Screenshot 2024-09-28 171638]
+
+### Screenshot 2
+![Screenshot 2024-09-28 171714]
+
+### Screenshot 3
+![Screenshot 2024-09-28 171915]
+
+
 ## Table of Contents
 
 - [Features](#features)
