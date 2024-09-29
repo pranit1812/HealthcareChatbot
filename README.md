@@ -9,13 +9,13 @@ A web-based health chat application that allows patients to interact with an AI-
 ## Screenshots
 
 ### Screenshot 1
-![Screenshot 2024-09-28 171638]
+![Screenshot 2024-09-28 171638](https://github.com/pranit1812/HealthcareChatbot/blob/main/Screenshot%202024-09-28%20171638.png)
 
 ### Screenshot 2
-![Screenshot 2024-09-28 171714]
+![Screenshot 2024-09-28 171714](https://github.com/pranit1812/HealthcareChatbot/blob/main/Screenshot%202024-09-28%20171714.png)
 
 ### Screenshot 3
-![Screenshot 2024-09-28 171915]
+![Screenshot 2024-09-28 171915](https://github.com/pranit1812/HealthcareChatbot/blob/main/Screenshot%202024-09-28%20171915.png)
 
 
 ## Table of Contents
